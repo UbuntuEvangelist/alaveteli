@@ -32,16 +32,31 @@ describe AdminHolidaysController do
 
     describe :new do
 
-        before do
-            get :new
+
+        describe 'when not using ajax' do
+
+            it 'renders the new template' do
+                get :new
+                expect(response).to render_template('new')
+            end
+
         end
 
-        it 'renders the new template' do
-            expect(response).to render_template('new')
+        describe 'when using ajax' do
+
+            it 'renders the new form partial' do
+                xhr :get, :new
+                expect(response).to render_template('new_form')
+            end
         end
 
         it 'creates a new holiday' do
+<<<<<<< HEAD
             assigns[:holiday].should be_an_instance_of(Holiday)
+=======
+            get :new
+            assigns[:holiday].should_not be_nil
+>>>>>>> 5dee248... Add some inline editing
         end
 
     end
@@ -88,14 +103,28 @@ describe AdminHolidaysController do
 
         before do
             @holiday = FactoryGirl.create(:holiday)
-            get :edit, :id => @holiday.id
         end
 
-        it 'renders the edit template' do
-            expect(response).to render_template('edit')
+        describe 'when not using ajax' do
+
+            it 'renders the edit template' do
+                get :edit, :id => @holiday.id
+                expect(response).to render_template('edit')
+            end
+
+        end
+
+        describe 'when using ajax' do
+
+            it 'renders the edit form partial' do
+                xhr :get, :edit, :id => @holiday.id
+                expect(response).to render_template('edit_form')
+            end
+
         end
 
         it 'gets the holiday in the id param' do
+            get :edit, :id => @holiday.id
             assigns[:holiday].should == @holiday
         end
 
