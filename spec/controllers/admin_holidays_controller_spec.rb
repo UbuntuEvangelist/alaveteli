@@ -51,12 +51,8 @@ describe AdminHolidaysController do
         end
 
         it 'creates a new holiday' do
-<<<<<<< HEAD
-            assigns[:holiday].should be_an_instance_of(Holiday)
-=======
             get :new
-            assigns[:holiday].should_not be_nil
->>>>>>> 5dee248... Add some inline editing
+            assigns[:holiday].should be_instance_of(Holiday)
         end
 
     end
@@ -191,6 +187,73 @@ describe AdminHolidaysController do
          it 'redirects to the index action' do
              expect(response).to redirect_to(admin_holidays_path)
          end
+    end
+
+    describe :prepare_import do
+
+        it 'renders the prepare_import template' do
+            get :prepare_import
+            expect(response).to render_template('prepare_import')
+        end
+
+        it 'creates an import' do
+            get :prepare_import
+            assigns[:holiday_import].should be_instance_of(HolidayImport)
+        end
+
+        describe 'if the import is valid' do
+
+            it 'populates the import' do
+                mock_import = mock(HolidayImport, :valid? => true,
+                                                  :populate => nil)
+                HolidayImport.stub!(:new).and_return(mock_import)
+                mock_import.should_receive(:populate)
+                get :prepare_import
+            end
+
+        end
+
+    end
+
+    describe :import do
+
+        it 'creates an import' do
+            post :import
+            assigns[:holiday_import].should be_instance_of(HolidayImport)
+        end
+
+        describe 'if the import can be saved' do
+
+            before do
+                mock_import = mock(HolidayImport, :save => true)
+                HolidayImport.stub!(:new).and_return(mock_import)
+                post :import
+            end
+
+            it 'should show a success notice' do
+                flash[:notice].should == 'Holidays successfully imported'
+            end
+
+            it 'should redirect to the index' do
+                response.should redirect_to(admin_holidays_path)
+            end
+
+        end
+
+        describe 'if the import cannot be saved' do
+
+            before do
+                mock_import = mock(HolidayImport, :save => false)
+                HolidayImport.stub!(:new).and_return(mock_import)
+                post :import
+            end
+
+            it 'should render the prepare_import template' do
+                expect(response).to render_template('prepare_import')
+            end
+
+        end
+
     end
 
  end
