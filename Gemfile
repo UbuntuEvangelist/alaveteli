@@ -26,7 +26,7 @@ gem 'recaptcha', '~> 0.3.1', :require => 'recaptcha/rails'
 # :require avoids "already initialized constant" warnings
 gem 'rmagick', :require => 'RMagick'
 gem 'ruby-msg', '~> 1.5.0',  :git => 'git://github.com/mysociety/ruby-msg.git'
-gem 'secure_headers'
+gem 'secure_headers', '>= 3.9.0'
 gem "statistics2", "~> 0.54"
 gem 'syslog_protocol'
 gem 'thin'
