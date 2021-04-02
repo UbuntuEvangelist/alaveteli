@@ -62,7 +62,7 @@ end
 
 group :test do
   gem 'fakeweb'
-  gem 'coveralls', :require => false
+  gem 'coveralls', '>= 0.6.7', :require => false
   gem 'webrat'
   gem 'nokogiri'
 end
