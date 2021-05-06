@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.21'
+gem 'rails', '4.0.0'
 
 gem 'pg'
 
@@ -9,17 +9,17 @@ gem 'acts_as_versioned', :git => 'git://github.com/technoweenie/acts_as_versione
 gem 'charlock_holmes'
 gem 'dynamic_form'
 gem 'exception_notification'
-gem 'fancybox-rails'
-gem 'foundation-rails'
+gem 'fancybox-rails', '>= 0.2.1'
+gem 'foundation-rails', '>= 5.2.1.0'
 gem 'jquery-rails', '~> 3.0.4'
-gem 'jquery-ui-rails'
+gem 'jquery-ui-rails', '>= 4.1.0'
 gem 'json'
 gem 'mahoro'
 gem 'memcache-client'
 gem 'net-http-local', :platforms => [:ruby_18, :ruby_19]
 gem 'net-purge'
 gem 'rack'
-gem 'rack-utf8_sanitizer', :platforms => [:ruby_19, :ruby_20, :ruby_21]
+gem 'rack-utf8_sanitizer', '>= 1.2.3', :platforms => [:ruby_19, :ruby_20, :ruby_21]
 gem 'rake', '0.9.2.2'
 gem 'rails-i18n'
 gem 'recaptcha', '~> 0.3.1', :require => 'recaptcha/rails'
@@ -49,9 +49,9 @@ gem 'unidecoder'
 
 group :assets do
   gem 'bootstrap-sass'
-  gem 'sass-rails', '~> 3.2.3'
+  gem 'sass-rails', '~> 4.0.0'
   gem 'compass-rails', '2.0.0'
-  gem 'coffee-rails', "~> 3.2.1"
+  gem 'coffee-rails', '~> 4.0.0'
   gem 'uglifier', '>= 1.0.3'
   gem 'therubyracer'
 end
@@ -68,16 +68,16 @@ group :test do
 end
 
 group :test, :development do
-  gem 'factory_girl_rails', '~> 1.7'
-  gem 'rspec-rails'
-  gem 'spork-rails'
+  gem 'factory_girl_rails', '~> 1.7', '>= 1.7.0'
+  gem 'rspec-rails', '>= 2.13.2'
+  gem 'spork-rails', '>= 4.0.0'
 end
 
 group :development do
   gem 'capistrano'
   gem 'mailcatcher'
-  gem 'quiet_assets'
-  gem 'rdoc'
+  gem 'quiet_assets', '>= 1.0.2'
+  gem 'rdoc', '>= 6.3.0'
 end
 
 group :debug do
