@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.21'
+gem 'rails', '4.0.0'
 
 gem 'pg'
 
@@ -70,7 +70,7 @@ end
 group :test, :development do
   gem 'factory_girl_rails', '~> 1.7'
   gem 'rspec-rails'
-  gem 'spork-rails'
+  gem 'spork-rails', '>= 4.0.0'
 end
 
 group :development do
