@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.21'
+gem 'rails', '4.0.0'
 
 gem 'pg'
 
@@ -49,9 +49,9 @@ gem 'unidecoder'
 
 group :assets do
   gem 'bootstrap-sass'
-  gem 'sass-rails', '~> 3.2.3'
+  gem 'sass-rails', '~> 4.0.0'
   gem 'compass-rails', '2.0.0'
-  gem 'coffee-rails', "~> 3.2.1"
+  gem 'coffee-rails', '~> 4.0.0'
   gem 'uglifier', '>= 1.0.3'
   gem 'therubyracer'
 end
@@ -68,9 +68,9 @@ group :test do
 end
 
 group :test, :development do
-  gem 'factory_girl_rails', '~> 1.7'
+  gem 'factory_girl_rails', '~> 1.7', '>= 1.7.0'
   gem 'rspec-rails'
-  gem 'spork-rails'
+  gem 'spork-rails', '>= 4.0.0'
 end
 
 group :development do
